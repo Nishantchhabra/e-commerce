@@ -26,5 +26,9 @@ class ECommerceService(val productRepo:ProductRepo){
 	fun retrieveAll():Iterable<Products>{
 		return productRepo.findAll()
 	}
+	
+	fun deleteProduct(productId:Long){
+		return productRepo.deleteById(productId)
+	}
 }
 

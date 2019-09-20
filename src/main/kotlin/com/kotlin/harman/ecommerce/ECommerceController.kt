@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.PathVariable
 import java.util.Optional
+import org.springframework.web.bind.annotation.DeleteMapping
 
 @RestController
 @RequestMapping("/api")
@@ -32,6 +33,11 @@ fun addProduct(@RequestBody products :Products):Unit{
 @GetMapping("/get/allproducts")
 fun getAllProducts():Iterable<Products>{
 	return ecommerceService.retrieveAll()
+}
+	
+@DeleteMapping("/get/deleteproduct/{Id}")
+fun deleteProduct(@PathVariable(value="Id") productId:Long): Unit{
+	ecommerceService.deleteProduct(productId)
 }
 }
 
